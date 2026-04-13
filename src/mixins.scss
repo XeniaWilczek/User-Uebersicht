@@ -1,0 +1,6 @@
+@use "sass:color";
+
+@mixin button-hover($c1, $c2, $c3, $c4) {
+  background: linear-gradient(45deg, $c1, $c2, $c3, $c4);
+  cursor: pointer;
+}
