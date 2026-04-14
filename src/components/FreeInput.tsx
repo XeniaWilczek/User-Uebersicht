@@ -1,11 +1,27 @@
-import "./FreeInput.scss";
+import type { ChangeEvent } from "react";
 
-function FreeInput({ text }: { text: string }) {
+function FreeInput({
+  text,
+  placeholder,
+  inputValue,
+  onChange,
+}: {
+  text: string;
+  placeholder: string;
+  inputValue: string | number;
+  onChange: (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+}) {
   return (
     <>
-      <label>
-        {text}
-        <input type="text"></input>
+      <label className="input-container__label">
+        {text + ":"}
+        <input
+          type="text"
+          placeholder={placeholder}
+          className="input-container__input"
+          value={inputValue}
+          onChange={onChange}
+        ></input>
       </label>
     </>
   );

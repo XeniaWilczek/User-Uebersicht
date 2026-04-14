@@ -4,3 +4,33 @@
   background: linear-gradient(45deg, $c1, $c2, $c3, $c4);
   cursor: pointer;
 }
+@mixin label-layout {
+  height: 40px;
+  width: 300px;
+  font-size: 1.5rem;
+  color: black;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+@mixin input-layout($selectedColor) {
+  border: none;
+  border-radius: 10px;
+  background-color: $selectedColor;
+  height: 40px;
+  width: 300px;
+  padding-left: 0.5rem;
+  box-sizing: border-box;
+}
+@mixin button {
+  height: 40px;
+  width: 150px;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: lightblue;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+}

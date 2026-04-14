@@ -3,9 +3,22 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 2rem;
   margin-top: 1rem;
   padding: 0;
   height: 100vh;
   width: 400px;
+  &__label {
+    @include label-layout;
+  }
+  &__input {
+    @include input-layout(($primary-color));
+  }
+  &__button {
+    @include button;
+  }
+  &__button:hover {
+    cursor: pointer;
+    background-color: #87ceeb;
+  }
 }

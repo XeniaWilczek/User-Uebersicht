@@ -1,6 +1,5 @@
 import "./Root.scss";
 import { Outlet, Link } from "react-router-dom";
-import newLogo from "../../images/newLogo.jpg";
 
 function Root() {
   return (
@@ -8,7 +7,11 @@ function Root() {
       <div className="app">
         <div className="sidebar">
           <div className="sidebar__header">
-            <img src={newLogo} alt="Techlogo " className="sidebar__image"></img>
+            <img
+              src="/images/Logo.jpg"
+              alt="Techlogo"
+              className="sidebar__image"
+            />
           </div>
           <Link to="/" className="sidebar__button">
             Übersicht
