@@ -1,6 +1,10 @@
-import "./Overview.scss";
+import UserCard from "../../components/UserCard";
 
 function Overview() {
-  return <></>;
+  return (
+    <div className="user-card-container">
+      <UserCard></UserCard>
+    </div>
+  );
 }
 export default Overview;

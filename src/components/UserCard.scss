@@ -1,0 +1,84 @@
+.user-card {
+  display: flex;
+  gap: 1rem;
+  height: 200px;
+  width: 600px;
+  background-color: yellow;
+  border: none;
+  border-radius: 10px;
+  margin: 1rem;
+  background-color: $primary-color;
+
+  &__left-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 150px;
+    background-color: $primary-color;
+    margin: 0;
+    border: none;
+    border-right: $border;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &__image {
+    height: auto;
+    width: 150px;
+    border-radius: 10px;
+  }
+
+  &__right-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-color;
+    height: 200px;
+    width: 450px;
+    border: none;
+    border-radius: 10px;
+  }
+}
+//Inhalt von "right-container"
+.upper-div {
+  display: flex;
+  justify-content: space-between;
+  background-color: $primary-color;
+  height: 50px;
+  width: 450px;
+  box-sizing: border-box;
+  padding: 0.5rem;
+
+  &__username {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  &__delete-button {
+    font-size: 1rem;
+    color: red;
+    background-color: $primary-color;
+    height: 20px;
+    width: 20px;
+    border: none;
+  }
+}
+
+.lower-div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  background-color: $primary-color;
+  height: 150px;
+  max-width: 300px;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  &__user-attributes {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: black;
+  }
+}

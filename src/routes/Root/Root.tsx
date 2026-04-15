@@ -8,7 +8,7 @@ function Root() {
         <div className="sidebar">
           <div className="sidebar__header">
             <img
-              src="/images/Logo.jpg"
+              src="/images/newLogo.jpg"
               alt="Techlogo"
               className="sidebar__image"
             />

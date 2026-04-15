@@ -15,6 +15,10 @@ function Create() {
   const phoneNumber = useInputValue("");
   const website = useInputValue("");
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
     <div className="input-container">
       <FreeInput
@@ -57,7 +61,7 @@ function Create() {
         onChange={website.handleInputChangeEvent}
       ></FreeInput>
       <Button></Button>
-    </div>
+    </d>
   );
 }
 export default Create;
