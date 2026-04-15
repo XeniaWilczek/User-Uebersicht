@@ -5,6 +5,8 @@ import Create from "./routes/Create/Create";
 import Edit from "./routes/Edit/Edit";
 import Root from "./routes/Root/Root";
 import ErrorPage from "./routes/Root/ErrorPage/ErrorPage";
+import { UserContext } from "./context/userContext";
+import { useReducer } from "react";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,10 +24,13 @@ function App() {
       ],
     },
   ]);
+  //const [users, dispatch] = useReducer(userReducer, []);
 
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <UserContext.Provider value={{ users, dispatch }}>
+        <RouterProvider router={router}></RouterProvider>
+      </UserContext.Provider>
     </>
   );
 }

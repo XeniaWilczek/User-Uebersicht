@@ -61,7 +61,7 @@ function Create() {
         onChange={website.handleInputChangeEvent}
       ></FreeInput>
       <Button></Button>
-    </d>
+    </div>
   );
 }
 export default Create;
