@@ -1,12 +1,14 @@
-function Button() {
+type ButtonProps = {
+  onClick: () => void;
+  text: string;
+};
+
+function Button({ onClick, text }: ButtonProps) {
   return (
-    <button
-      type="submit"
-      form="input-container"
-      className="input-container__button"
-    >
-      Abschicken
+    <button className="input-container__submit-button" onClick={onClick}>
+      {text}
     </button>
   );
 }
+
 export default Button;

@@ -1,4 +1,4 @@
-import { createContext, type Dispatch } from "react";
+import { createContext, useContext, type Dispatch } from "react";
 import type { User } from "../userType";
 import type { UserAction } from "../hooks/useUserReducer";
 
@@ -11,6 +11,13 @@ interface UserContextType {
 }
 
 //Kontext erstellen
+
 export const UserContext = createContext<UserContextType | undefined>(
   undefined,
 );
+
+export function useUserContext() {
+  const context = useContext(UserContext);
+  if (!context) throw new Error("useUserContext muss im Provider liegen");
+  return context;
+}

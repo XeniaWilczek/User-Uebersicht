@@ -6,7 +6,8 @@ import Edit from "./routes/Edit/Edit";
 import Root from "./routes/Root/Root";
 import ErrorPage from "./routes/Root/ErrorPage/ErrorPage";
 import { UserContext } from "./context/userContext";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
+import { useUserReducer } from "./hooks/useUserReducer";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,14 +25,20 @@ function App() {
       ],
     },
   ]);
-  //const [users, dispatch] = useReducer(userReducer, []);
+  const [users, dispatch] = useReducer(useUserReducer, [], () => {
+    const localData = localStorage.getItem("users");
+    return localData ? JSON.parse(localData) : [];
+  });
+
+  // Speichern bei jeder Änderung am State
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+  }, [users]);
 
   return (
-    <>
-      <UserContext.Provider value={{ users, dispatch }}>
-        <RouterProvider router={router}></RouterProvider>
-      </UserContext.Provider>
-    </>
+    <UserContext.Provider value={{ users, dispatch }}>
+      <RouterProvider router={router} />
+    </UserContext.Provider>
   );
 }
 

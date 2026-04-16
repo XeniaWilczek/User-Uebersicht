@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 1rem;
   padding: 0;
   height: 100vh;
@@ -14,11 +14,16 @@
   &__input {
     @include input-layout(($primary-color));
   }
-  &__button {
+  &__submit-button {
     @include button;
   }
-  &__button:hover {
+  &__submit-button:hover {
     cursor: pointer;
     background-color: #87ceeb;
+  }
+  &__alert {
+    color: black;
+    font-size: 0.8rem;
+    margin: 0;
   }
 }

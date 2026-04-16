@@ -16,14 +16,17 @@ export type UserAction =
   | { type: "REMOVE_USER"; payload: number }
   | { type: "UPDATE_USER"; payload: User };
 
-// export function userReducer(state: User[], action: <UserAction>): User {
-// switch (action.type) {
-// case "UPDATE":
-// return {
-// ...state,
-// [action.payload.field]: action.payload.value,
-// };
-// case "RESET":
-// return initialState;
-// }
-// }
+export function useUserReducer(state: User[], action: UserAction): User[] {
+  switch (action.type) {
+    case "ADD_USER":
+      return [...state, action.payload];
+    case "REMOVE_USER":
+      return state.filter((user) => user.id !== action.payload);
+    case "UPDATE_USER":
+      return state.map((user) =>
+        user.id === action.payload.id ? { ...user, ...action.payload } : user,
+      );
+    default:
+      return state;
+  }
+}
