@@ -9,23 +9,18 @@ import { useEffect, useReducer } from "react";
 import { useUserReducer } from "./hooks/useUserReducer";
 
 function App() {
-  const router = createBrowserRouter(
-    [
-      {
-        path: "/",
-        element: <Root />,
-        errorElement: <ErrorPage />,
-        children: [
-          { index: true, element: <Overview /> },
-          { path: "Create", element: <Create /> },
-          { path: "Edit/:id", element: <Edit /> },
-        ],
-      },
-    ],
+  const router = createBrowserRouter([
     {
-      basename: "/user-uebersicht",
+      path: "/user-uebersicht",
+      element: <Root />,
+      errorElement: <ErrorPage />,
+      children: [
+        { index: true, element: <Overview /> },
+        { path: "Create", element: <Create /> },
+        { path: "Edit/:id", element: <Edit /> },
+      ],
     },
-  );
+  ]);
   const [users, dispatch] = useReducer(useUserReducer, [], () => {
     const localData = localStorage.getItem("users");
     return localData ? JSON.parse(localData) : [];
