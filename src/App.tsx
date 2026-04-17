@@ -11,7 +11,7 @@ import { useUserReducer } from "./hooks/useUserReducer";
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/user-uebersicht",
+      path: "/User-Uebersicht",
       element: <Root />,
       errorElement: <ErrorPage />,
       children: [
