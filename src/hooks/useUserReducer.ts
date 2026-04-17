@@ -2,7 +2,7 @@ import type { User } from "../userType";
 
 export const initialState: User = {
   username: "Name",
-  dateOfBirth: 0,
+  dateOfBirth: "0",
   gender: "Geschlecht",
   address: "Anschrift",
   email: "E-Mail",

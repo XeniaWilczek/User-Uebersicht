@@ -1,4 +1,3 @@
-import "./App.scss";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Overview from "./routes/Overview/Overview";
 import Create from "./routes/Create/Create";
@@ -10,21 +9,23 @@ import { useEffect, useReducer } from "react";
 import { useUserReducer } from "./hooks/useUserReducer";
 
 function App() {
-  const router = createBrowserRouter([
+  const router = createBrowserRouter(
+    [
+      {
+        path: "/",
+        element: <Root />,
+        errorElement: <ErrorPage />,
+        children: [
+          { index: true, element: <Overview /> },
+          { path: "Create", element: <Create /> },
+          { path: "Edit/:id", element: <Edit /> },
+        ],
+      },
+    ],
     {
-      path: "/",
-      element: <Root></Root>,
-      errorElement: <ErrorPage></ErrorPage>,
-      children: [
-        { index: true, element: <Overview></Overview> },
-        {
-          path: "Create",
-          element: <Create></Create>,
-        },
-        { path: "Edit", element: <Edit></Edit> },
-      ],
+      basename: "/user-uebersicht",
     },
-  ]);
+  );
   const [users, dispatch] = useReducer(useUserReducer, [], () => {
     const localData = localStorage.getItem("users");
     return localData ? JSON.parse(localData) : [];

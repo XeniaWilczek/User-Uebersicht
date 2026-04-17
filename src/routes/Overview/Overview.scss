@@ -1,12 +1,12 @@
 .user-card-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
   align-content: start;
   width: 100%;
   min-height: 100vh;
   box-sizing: border-box;
   max-width: 100%;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
 }

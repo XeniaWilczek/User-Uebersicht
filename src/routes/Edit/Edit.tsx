@@ -7,25 +7,26 @@ import { useInputValue } from "../../hooks/useInputValue";
 import { useUserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import type { User } from "../../userType";
+import { useParams } from "react-router-dom";
 
-function Edit({ userToEdit }: { userToEdit?: User }) {
-  const { dispatch } = useUserContext();
+function Edit() {
+  const { id } = useParams();
+  const { users, dispatch } = useUserContext();
   const navigate = useNavigate();
-
-  const dummyUser: User = {
+  const userToEdit = users.find((u) => u.id === Number(id));
+  const userTemplate: User = {
     username: "",
     email: "",
     id: 0,
     address: "",
-    dateOfBirth: 0,
+    dateOfBirth: "0",
     gender: "",
     phoneNumber: 0,
     website: "",
   };
 
-  const data = userToEdit || dummyUser;
+  const data = userToEdit || userTemplate;
 
-  // 2. Jetzt die Hooks mit 'data' (entweder echter User oder Dummy) initialisieren
   const userName = useInputValue(data.username);
   const dateOfBirth = useInputValue(data.dateOfBirth);
   const gender = useInputValue(data.gender);
@@ -45,17 +46,17 @@ function Edit({ userToEdit }: { userToEdit?: User }) {
       website.inputValue,
     ];
 
-    const isAnyFieldEmpty = values.some((val) => val.toString().trim() === "");
+    const isEmpty = values.some((val) => val.toString().trim() === "");
 
-    if (isAnyFieldEmpty) {
+    if (isEmpty) {
       alert("Bitte alle Felder ausfüllen!");
       return;
     }
-
+    //Typabsicherung (wurden als string oder number definiert)
     const updatedUser: User = {
       ...data,
       username: String(userName.inputValue),
-      dateOfBirth: Number(dateOfBirth.inputValue),
+      dateOfBirth: String(dateOfBirth.inputValue),
       gender: String(gender.inputValue),
       address: String(address.inputValue),
       email: String(email.inputValue),
@@ -82,6 +83,7 @@ function Edit({ userToEdit }: { userToEdit?: User }) {
       />
       <SelectInput
         heading={"Geschlecht"}
+        inputValue={String(gender.inputValue)}
         onChange={gender.handleInputChangeEvent}
       />
       <FreeInput

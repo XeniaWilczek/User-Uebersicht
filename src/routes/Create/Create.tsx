@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Create() {
   const { dispatch } = useUserContext();
   const navigate = useNavigate();
-
+  //leere Startwerte für Input-Felder setzen
   const userName = useInputValue("");
   const dateOfBirth = useInputValue("");
   const gender = useInputValue("");
@@ -19,7 +19,7 @@ function Create() {
   const phoneNumber = useInputValue("");
   const website = useInputValue("");
 
-  /*3. Hinzufügen des User-Objektss zum Array*/
+  //Hinzufügen des User-Objektss zum Array
   function handleCreateClick() {
     const values = [
       userName.inputValue,
@@ -31,25 +31,24 @@ function Create() {
       website.inputValue,
     ];
 
-    // 1. Prüfung, ob alle Werte vorhanden sind
+    //Prüfung, ob alle Werte vorhanden sind
     if (values.some((val) => val.toString().trim() === "")) {
       alert("Bitte alle Felder ausfüllen!");
       return;
     }
 
-    // 2. Prüfung, ob bei Number-Feldern nur Ziffern eingegeben werden
+    //Prüfung, ob bei Number-Feldern nur Ziffern eingegeben werden
     const phoneNumberType = Number(phoneNumber.inputValue);
-    const birthdateType = Number(dateOfBirth.inputValue);
 
-    if (isNaN(phoneNumberType) || isNaN(birthdateType)) {
-      alert("Bitte für Telefon und Datum nur Ziffern eingeben!");
+    if (isNaN(phoneNumberType)) {
+      alert("Bitte für Telefon nur Ziffern eingeben!");
       return;
     }
 
     // Erstellung eines User-Objekts
     const newUser = {
       username: String(userName.inputValue),
-      dateOfBirth: birthdateType,
+      dateOfBirth: String(dateOfBirth.inputValue),
       gender: String(gender.inputValue),
       address: String(address.inputValue),
       email: String(email.inputValue),
