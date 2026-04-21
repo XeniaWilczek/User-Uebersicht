@@ -19,7 +19,7 @@ function Create() {
   const phoneNumber = useInputValue("");
   const website = useInputValue("");
 
-  //Hinzufügen des User-Objektss zum Array
+  //Hinzufügen des User-Objekts zum Array
   function handleCreateClick() {
     const values = [
       userName.inputValue,
@@ -37,7 +37,7 @@ function Create() {
       return;
     }
 
-    //Prüfung, ob bei Number-Feldern nur Ziffern eingegeben werden
+    //Prüfung, ob beim Number-Feld nur Ziffern eingegeben werden
     const phoneNumberType = Number(phoneNumber.inputValue);
 
     if (isNaN(phoneNumberType)) {
