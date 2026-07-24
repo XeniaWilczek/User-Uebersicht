@@ -5,7 +5,7 @@ import DateInput from "../../components/dateInput/DateInput";
 import { useInputValue } from "../../hooks/useInputValue";
 import { useUserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
-import SubmitButton from "../../components/button/Button";
+import SubmitButton from "../../components/button/SubmitButton";
 
 function Create() {
   const { dispatch } = useUserContext();

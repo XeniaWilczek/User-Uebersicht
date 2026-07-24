@@ -2,13 +2,13 @@ import "../Create/Create.scss";
 import FreeInput from "../../components/freeInput/FreeInput";
 import SelectInput from "../../components/selectInput/SelectInput";
 import DateInput from "../../components/dateInput/DateInput";
-import Button from "../../components/button/Button";
+import Button from "../../components/button/SubmitButton";
 import { useInputValue } from "../../hooks/useInputValue";
 import { useUserContext } from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 import type { User } from "../../types/user.type";
 import { useParams } from "react-router-dom";
-import SubmitButton from "../../components/button/Button";
+import SubmitButton from "../../components/button/SubmitButton";
 
 function Edit() {
   const { id } = useParams();
